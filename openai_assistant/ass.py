@@ -17,20 +17,20 @@ instructions = """
 
 
 # Chatbot
-# vector_store = client.beta.vector_stores.update(
-#     vector_store_id= 'vs_iuWC5kHGiffRSzSfa0eMaMxs'
-# )
+vector_store = client.beta.vector_stores.update(
+    vector_store_id= 'vs_46Tnl9kk9H399oAIRwj01OOS'
+)
 
 
 
 ## 어시스턴트 업데이트
 assistant = client.beta.assistants.update(
-    # assistant_id= ass_id,
-    name= 'Test ChatBot🤖',
+    assistant_id= ass_id,
+    name= 'Test K-water ChatBot🤖',
     instructions = instructions,
     model ='gpt-4o-mini',
     tools =  [{'type': 'file_search'}],
-    # tool_resources={'file_search': {'vector_store_ids':[vector_store.id]}},
+    tool_resources={'file_search': {'vector_store_ids':[vector_store.id]}},
     temperature=0.86,
 )
 
@@ -46,20 +46,24 @@ print(f"[현재 어시스턴트 정보]\n{assistant_info}")
 
 # ### 백터스토어 생성및 파일 임베딩 업로드 ####
 # vector_store = client.beta.vector_stores.create(
-#     name = '[ Nocoding AI ] Chatbot',
+#     name = 'k-water 2021 docs',
 # )
+
+
+###############################################################
 
 # # #업로드할 파일들의 경로를 지정
 # files_to_uploaded = [
-#     '/Users/ainomis_dev/Desktop/ainomis/chatbot-nocoding/.docs/nocodingAI_models.md',
-#     '/Users/ainomis_dev/Desktop/ainomis/chatbot-nocoding/.docs/preparing_models.md',
+#     # '/Users/ainomis_dev/Desktop/ainomis/streamlit/docs/2021/COP26 공무국외출장 결과보고(내부).pdf',
+#     '/Users/ainomis_dev/Desktop/ainomis/streamlit/docs/2021/기자재 인수인계 확인서(기자재 및 정보시스템).pdf',
+#     '/Users/ainomis_dev/Desktop/ainomis/streamlit/docs/2021/03. Minutes Of Meeting with attachment(결재용).pdf'
 # ]
 
 # file_streams = [open(path, 'rb') for path in files_to_uploaded]
 
 # # 파일 업로드 및 백터 스토어에 추가
 # file_batch = client.beta.vector_stores.file_batches.upload_and_poll(
-#     vector_store_id=vector_store.id, files = file_streams
+#     vector_store_id='vs_46Tnl9kk9H399oAIRwj01OOS', files = file_streams
 # )
 
 
@@ -95,7 +99,7 @@ print(f"[현재 어시스턴트 정보]\n{assistant_info}")
 
 # # ## 백터스토어 아이디 안 파일 리스트 ####
 # vector_store_files = client.beta.vector_stores.retrieve(
-#     vector_store_id='vs_0dJoKkouQ6Qa7HbczRnwC1VG',
+#     vector_store_id='vs_46Tnl9kk9H399oAIRwj01OOS',
 # )
 # file_ids = vector_store_files.file_counts
 
