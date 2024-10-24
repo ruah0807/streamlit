@@ -7,6 +7,8 @@ from init import client
 load_dotenv()
 
 ass_id = 'asst_ifqkPUog6RMvmWD27YYGFS9M'
+# [Assistant Name]: Test ChatBot🤖, [Assistant ID] : asst_ifqkPUog6RMvmWD27YYGFS9M
+
 
 instructions = """
 [ Role ]
