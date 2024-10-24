@@ -9,7 +9,6 @@ if "save_memos" not in st.session_state:
 # 메모가 있으면 출력
 if st.session_state["save_memos"]:
     for idx, memo in enumerate(st.session_state["save_memos"], 1):
-        st.subheader(f"Memo {idx}")
-        st.write(memo)
+        st.write(f"- {memo}")
 else:
-    st.write("저장된 메모가 없습니다.")
+    st.write("챗봇과 대화 후 유용한 메시지를 저장해보세요.")

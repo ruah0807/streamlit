@@ -1,5 +1,6 @@
 import streamlit as st
-
+import pandas as pd
+from io import StringIO
 
 def render_sidebar():
     with st.sidebar:
@@ -39,9 +40,28 @@ def render_sidebar():
                 page_2024
             ]
         }
+
     
     return pages
     
+
+def handle_file_upload():
+    with st.sidebar:
+        uploaded_file = st.file_uploader("Choose a file")
+        if uploaded_file is not None :
+            bytes_data = uploaded_file.getvalue()
+            st.write(bytes_data)
+
+            # to convert to a string based IO :
+            stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+            st.write(stringio)
+
+            # Can be used wherever a "file-like" object is accepted:
+            dataframe = pd.read_csv(uploaded_file)
+            st.write(dataframe)
+
+    return uploaded_file
+
 
         # if main:
         #     st.session_state.current_page = "main"

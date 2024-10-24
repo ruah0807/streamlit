@@ -1,24 +1,25 @@
 import streamlit as st
-from sidebar import render_sidebar
+from sidebar import render_sidebar, handle_file_upload
 from page import page_2021, page_2022, page_2023, page_2024, page_main
 
 
 #사이드바 랜더링
-pages =render_sidebar()
+sidebar =render_sidebar()
 
-#현재페이지 상태 초기화
-if 'current_page' not in st.session_state:
-    st.session_state['current_page'] = "Home"
+handle_file_upload()
 
-selected_page = st.session_state["current_page"]
-
-
-pg = st.navigation(pages)
+pg = st.navigation(sidebar)
 
 pg.run()
 
 
 
+
+#현재페이지 상태 초기화
+# if 'current_page' not in st.session_state:
+#     st.session_state['current_page'] = "Home"
+
+# selected_page = st.session_state["current_page"]
 
 
 

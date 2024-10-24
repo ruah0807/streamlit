@@ -16,7 +16,7 @@ ass_id = 'asst_ifqkPUog6RMvmWD27YYGFS9M'
 client = OpenAI(api_key=api_key)
 
 
-st.title("2021년 K-water")
+st.subheader("2021년 K-water")
 st.write("2021년 수자원공사에 대해 무엇이든 물어보고 질문하세요")
 
 ##################################################################
@@ -121,15 +121,9 @@ if prompt := st.chat_input():
             st.session_state.messages.append({"role": "assistant", "content": msg})  
 
             # 저장버튼의 상태를 관리하기 위한 세션 변수 초기화
-            if "show_save_button" not in st.session_state:
-                st.session_state["show_save_button"] = True
+            st.session_state["show_save_button"] = True
 
-# assistant 메시지가 있을 때만 Save 버튼을 표시
 if st.session_state["show_save_button"]:
-    # 저장된 대화 메모를 저장할 공간을 세션 상태로 정의
-    if "save_memos" not in st.session_state:
-        st.session_state["save_memos"] = []
-
     # Save 버튼으로 마지막 assistant 메시지 저장
     if st.button("저장"):
         # 마지막 assistant 메시지 저장
@@ -139,16 +133,13 @@ if st.session_state["show_save_button"]:
         # 저장 버튼을 숨김
         st.session_state["show_save_button"] = False
 
-#########################################################
-# 저장된 메모 확인
-# if "save_memos" not in st.session_state:
-#     st.session_state["save_memos"] = []
+# #########################################################
 
-# 메모가 있으면 출력
-if st.session_state["save_memos"]:
-    st.subheader("저장 메모")
-    for idx, memo in enumerate(st.session_state["save_memos"], 1):
-        st.subheader(f"Memo {idx}")
-        st.write(memo)
-else:
-    st.write("저장된 메모가 없습니다.")
+# # 메모가 있으면 출력
+# if st.session_state["save_memos"]:
+#     st.subheader("저장 메모")
+#     for idx, memo in enumerate(st.session_state["save_memos"], 1):
+#         st.subheader(f"Memo {idx}")
+#         st.write(memo)
+# else:
+#     st.write("저장된 메모가 없습니다.")
