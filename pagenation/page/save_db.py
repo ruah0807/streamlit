@@ -1,28 +1,12 @@
 import streamlit as st
 import time, os
 from init import client
+# from transformers import pipeline
+# from config_beta_kw import *
+# from kwDB_st_pdfminer import make_db
+
 
 # vector_store_id = 'vs_46Tnl9kk9H399oAIRwj01OOS'
-
-def handle_file_upload():
-    uploaded_files = st.file_uploader("Choose a file", accept_multiple_files=True)
-    if uploaded_files:
-        for uploaded_file in uploaded_files:
-            st.write(f"filename : {uploaded_file}")
-
-        # 업로드된 파일을 서버에 저장
-        saved_file_paths = save_uploaded_files(uploaded_files)
-        st.write("파일이 서버에 저장되었습니다:", saved_file_paths)
-
-        file_batch =upload_files_to_vector_store(vector_store_id, saved_file_paths)
-        st.write(f"파일들이 백터스토어에 업로드되었습니다. \n{file_batch}")
-
-    # for uploaded_file in uploaded_files:
-    #     bytes_data = uploaded_file.read()
-    #     st.write("filename:", uploaded_file.name)
-    #     st.write(bytes_data)
-
-    return uploaded_files
 
 
 
@@ -104,6 +88,20 @@ if st.button("DB 저장", use_container_width=True):
         status.update(label=f"{folder_path} 저장 완료되었습니다.", state="complete", expanded=True)
         st.success("모든 파일이 Vector DB에 저장되었습니다.")
 
-handle_file_upload()
+st.write("---")
+    
+uploaded_files = st.file_uploader("Choose a file", accept_multiple_files=True)
+if uploaded_files:
+    for uploaded_file in uploaded_files:
+        st.write(f"filename : {uploaded_file}")
 
-  
+    # 업로드된 파일을 서버에 저장
+    saved_file_paths = save_uploaded_files(uploaded_files)
+    st.write("파일이 서버에 저장되었습니다:", saved_file_paths)
+
+    file_batch =upload_files_to_vector_store(vector_store_id, saved_file_paths)
+    st.write(f"파일들이 백터스토어에 업로드되었습니다. \n{file_batch}")
+
+
+
+

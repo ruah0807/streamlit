@@ -4,8 +4,8 @@ def render_sidebar():
     
     main = st.Page(
         "page/page_main.py",
-        title = "Main Page",
-        icon = "🏠",
+        title = "K-Water 챗봇",
+        icon = "🤖",
         default=True
     )
 
@@ -23,7 +23,7 @@ def render_sidebar():
 
     with st.sidebar :
         pages = {
-            "Home" : [main],
+            "Main" : [main],
             "Others":[
                 save_db,
                 assistant,
