@@ -2,7 +2,7 @@ import streamlit as st
 import time, os
 from init import client
 
-vector_store_id = 'vs_46Tnl9kk9H399oAIRwj01OOS'
+# vector_store_id = 'vs_46Tnl9kk9H399oAIRwj01OOS'
 
 def handle_file_upload():
     uploaded_files = st.file_uploader("Choose a file", accept_multiple_files=True)
@@ -75,7 +75,7 @@ def save_uploaded_files(uploaded_files):
 
 
 DOCUMENTs = "/Users/ainomis_dev/Desktop/empty"
-st.subheader("Save DB")
+st.title(":blue[K-water] Save PDF")
 st.write("수자원공사 관련자료를 업로드하세요")
 
 def get_subdirectories(directorys):

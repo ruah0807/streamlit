@@ -1,7 +1,4 @@
 import streamlit as st
-import pandas as pd
-from io import BytesIO
-import os
 
 def render_sidebar():
     
@@ -18,29 +15,18 @@ def render_sidebar():
         icon="📂"
     ) 
 
-    page_2021 = st.Page(
-        "page/page_2021.py",
-        title = "2021",
-    ) 
-
-    page_2023 = st.Page(
-        "page/page_2023.py",
-        title = "2023",
-    ) 
-
-    page_2024 = st.Page(
-        "page/page_2024.py",
-        title = "2024",
+    assistant = st.Page(
+        "page/assistant.py",
+        title = "OpenAI Assistant",
+        icon="🪩"
     ) 
 
     with st.sidebar :
         pages = {
             "Home" : [main],
-            "Upload K-water Informations":[
+            "Others":[
                 save_db,
-                page_2021,
-                page_2023,
-                page_2024
+                assistant,
             ]
         }
 
