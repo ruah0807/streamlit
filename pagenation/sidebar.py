@@ -20,6 +20,12 @@ def render_sidebar():
         title = "OpenAI Assistant",
         icon="🪩"
     ) 
+    
+    save_memo = st.Page(
+        "page/save_memo.py",
+        title = "Assistant Memo",
+        icon="🔖"
+    ) 
 
     with st.sidebar :
         pages = {
@@ -27,10 +33,9 @@ def render_sidebar():
             "Others":[
                 save_db,
                 assistant,
+                save_memo
             ]
         }
-
-    
 
     
     return pages

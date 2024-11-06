@@ -69,7 +69,7 @@ FOLDER_LIST = sorted(get_subdirectories(DOCUMENTs))
 
     
 selected_folder_sidebar = st.selectbox(label="Save Only PDF files", options=FOLDER_LIST)
-if st.button("DB 저장", use_container_width=True):
+if st.button("파일 업로드", use_container_width=True):
     folder_path = os.path.join(DOCUMENTs, selected_folder_sidebar)
     """선택한 폴더 내의 PDF 파일 처리 함수"""
     # 선택한 폴더 내의 파일 목록 가져오기
@@ -89,7 +89,11 @@ if st.button("DB 저장", use_container_width=True):
         st.success("모든 파일이 Vector DB에 저장되었습니다.")
 
 st.write("---")
-    
+
+
+#######################################################################################
+
+## 기본 파일 업로드 방식
 uploaded_files = st.file_uploader("Choose a file", accept_multiple_files=True)
 if uploaded_files:
     for uploaded_file in uploaded_files:

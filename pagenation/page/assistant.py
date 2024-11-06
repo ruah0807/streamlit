@@ -16,7 +16,7 @@ ass_id = 'asst_ifqkPUog6RMvmWD27YYGFS9M'
 client = OpenAI(api_key=api_key)
 
 
-st.subheader("2021년 K-water")
+st.subheader(":blue[K-water] 수자원공사 챗봇")
 st.write("2021년 수자원공사에 대해 무엇이든 물어보고 질문하세요")
 
 ##################################################################

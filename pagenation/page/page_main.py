@@ -1,12 +1,6 @@
 import streamlit as st
 from PIL import Image
 
-    # 로고 이미지 추가
-    # logo = Image.open("/Users/ainomis_dev/Desktop/ainomis/streamlit/_img/k-water_logo.png")
-
-    # st.image(logo, width=300)
-
-    # 전체페이지 구성
 
 st.title(":blue[K-water] 수자원공사 챗봇")
 
@@ -21,13 +15,4 @@ st.code("""
 
 이 챗봇은 K-water의 방대한 연도별 데이터를 체계적으로 관리하며, 사용자에게 필요한 정보를 빠르게 제공할 수 있도록 설계되어 있어 업무의 효율성을 높이는 데 도움이 됩니다.
 """)
-    # # 메모 저장 공간 초기화 (세션에 없으면 빈 리스트로 설정)
-    # if "save_memos" not in st.session_state:
-    #     st.session_state["save_memos"] = []
-
-    # # 메모가 있으면 출력
-    # if st.session_state["save_memos"]:
-    #     for idx, memo in enumerate(st.session_state["save_memos"], 1):
-    #         st.write(f"- {memo}")
-    # else:
-    #     st.write("챗봇과 대화 후 유용한 메시지를 저장해보세요.")
+   
