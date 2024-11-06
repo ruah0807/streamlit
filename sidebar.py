@@ -30,10 +30,10 @@ def render_sidebar():
     with st.sidebar :
         pages = {
             "Main" : [main],
-            "Others":[
+            "Save DB":[
                 save_db,
-                assistant,
-                save_memo
+                # assistant,
+                # save_memo
             ]
         }
 

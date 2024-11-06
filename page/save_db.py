@@ -68,7 +68,7 @@ def get_subdirectories(directorys):
 FOLDER_LIST = sorted(get_subdirectories(DOCUMENTs))
 
     
-selected_folder_sidebar = st.selectbox(label="Save Only PDF files", options=FOLDER_LIST)
+selected_folder_sidebar = st.selectbox(label="Choose folder / Save Only '.pdf'", options=FOLDER_LIST)
 if st.button("파일 업로드", use_container_width=True):
     folder_path = os.path.join(DOCUMENTs, selected_folder_sidebar)
     """선택한 폴더 내의 PDF 파일 처리 함수"""
