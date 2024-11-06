@@ -1,9 +1,9 @@
 import streamlit as st
-# from langchain_chroma import Chroma
+from langchain_chroma import Chroma
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import HuggingFaceEmbeddings
-# from pdfminer.high_level import extract_pages 
-# from pdfminer.layout import LTTextContainer 
+from pdfminer.high_level import extract_pages 
+from pdfminer.layout import LTTextContainer 
 from langchain.docstore.document import Document
 from config_beta_kw import *
 import os

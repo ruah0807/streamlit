@@ -13,7 +13,7 @@ from langchain.prompts import PromptTemplate
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema.output_parser import StrOutputParser
-#from transformers import pipeline
+from transformers import pipeline
 from config_beta_kw import *
 from kwDB_st_pdfminer import make_db
 import random  # 추가
