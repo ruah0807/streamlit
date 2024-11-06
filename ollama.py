@@ -3,7 +3,7 @@ from langchain_core.prompts import ChatPromptTemplate
 import time,json
 
 # spaCy 모델 로드
-llm = Ollama(model = "gemma2:9b")
+llm = Ollama(model = "gemma2:2b")
 
 
 
@@ -12,17 +12,16 @@ chat_template = ChatPromptTemplate.from_messages(
     ("system", """
     질문에서 중요한 키워드를 골라주세요 응답형식은 아래와 같습니다:
      {{
-        "year": "(연도가 있다면 입력 )",
-        "keywords" : [
-        "(연도 외의 키워드(지명, 이름 등)를 중요도 순위대로 입력)",
-        ]
+        "year": "(연도가 있다면 입력)",
+        "name" : "(이름이 있다면 입력)",
+        "location": "('나라명' 혹은 지명과 나라명이 둘다 있다면 '지명'만 있다면 입력)",
      }}
 """),
 ("human", "{user_input}")
 ]
 )
 message = chat_template.format_messages(
-    user_input = "2021년 k-water에서 홍길동님을 위해 인도 스마랑시에서 준비한 행사는 무엇인가요?"
+    user_input = "k-water에서 홍길동님을 위해 인도 스마랑시에서 준비한 행사는 무엇인가요?"
 )
 
 #  텍스트에서 JSON 부분만 추출하여 반환하는 함수
@@ -46,8 +45,9 @@ def extract_json_from_text(text):
 def print_parsed_result(response):
     data = extract_json_from_text(response)
     year = data.get("year")
-    keywords = data.get("keywords")
-    result = {"year": year, "keywords": keywords}
+    name = data.get("name")
+    location = data.get("location")
+    result = {"year": year, "name": name, "location": location}
     return result
     
 
