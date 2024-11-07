@@ -3,7 +3,7 @@ from langchain_core.prompts import ChatPromptTemplate
 import time,json
 
 # spaCy 모델 로드
-llm = Ollama(model = "gemma2:2b")
+llm = Ollama(model = "gemma2:2b", temperature=0)
 
 
 
